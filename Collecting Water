@@ -1,0 +1,17 @@
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    ans=0
+    max_rt=[0]*n
+    max_lt=[0]*n
+    max_lt[0]=arr[0]
+    for j in range(1,n):
+        max_lt[j]=max(max_lt[j-1],arr[j])
+    max_rt[n-1]=arr[n-1]
+    for j in range(n-2,-1,-1):
+        max_rt[j]=max(max_rt[j+1],arr[j])
+    for j in range(n):
+        min1=min(max_lt[j],max_rt[j])
+        ans+=min1-arr[j]
+    print(ans)
