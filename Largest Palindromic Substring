@@ -1,0 +1,26 @@
+t=int(input())
+for i in range(t):
+    n=int(input())
+    s=str(input())
+    ans=[]
+    for j in range(len(s)):
+        p1=p2=j
+        e=o=0
+        while p1>=0 and p2<len(s):
+            if s[p1]==s[p2]:
+                p1-=1
+                p2+=1
+                e=p2-p1-1
+            else:
+                break
+        p1=j
+        p2=j+1
+        while p1>=0 and p2<len(s):
+            if s[p1]==s[p2]:
+                p1-=1
+                p2+=1
+                o=p2-p1-1
+            else:
+                break
+        ans.append(max(o,e))
+    print(max(ans))
