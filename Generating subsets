@@ -1,0 +1,16 @@
+def generate_subset(arr:list,ind:int,res,ans):
+    if ind==len(arr):
+        return
+    for i in range(ind,len(arr)):
+        res.append(arr[i])
+        print(*res)
+        generate_subset(arr,i+1,res,ans)
+        res.pop()
+t=int(input())
+for i in range(t):
+    n=int(input())
+    arr=list(map(int,input().split()))
+    arr.sort()
+    ans=[]
+    ans=generate_subset(arr,0,[],[])
+    print(ans)
