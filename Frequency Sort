@@ -1,0 +1,10 @@
+from collections import Counter
+t=int(input())
+for i in range(t):
+    n=int(input())
+    a=list(map(int,input().split()))
+    count=Counter(a)
+    sorted_a=sorted(a,key=lambda x:(count[x], x))
+    for i in range(len(sorted_a)):
+        print(sorted_a[i],end=" ")
+    print()
