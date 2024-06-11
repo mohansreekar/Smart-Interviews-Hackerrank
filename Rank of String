@@ -1,0 +1,21 @@
+def fact(n):
+    if n==1 or n==0:
+        return 1
+    return n*fact(n-1)
+def rank(s):
+    n=len(s)
+    mul=fact(n)
+    ran=1
+    for i in range(n):
+        mul=mul//(n-i)
+        count=0
+        for j in range(i+1,n):
+            if s[j]<s[i]:
+                count+=1
+        ran+=count*mul
+    return ran
+t=int(input())
+for i in range(t):
+    s=str(input())
+    ans=rank(s)
+    print(ans)
