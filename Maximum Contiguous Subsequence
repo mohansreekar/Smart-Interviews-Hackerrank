@@ -1,0 +1,16 @@
+#using cumulative sum approach
+t=int(input())
+for i in range(t):
+    s=set()
+    ans=0
+    n=int(input())
+    arr=list(map(int,input().split()))
+    for i in arr:
+        s.add(i)
+    for i in range(n):
+        if arr[i]-1 not in s:
+            j=arr[i]
+            while j in s:
+                j=j+1
+            ans=max(ans,j-arr[i])
+    print(ans)
