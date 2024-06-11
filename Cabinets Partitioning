@@ -1,0 +1,34 @@
+#solved using binary search
+def is_possible(time,k,job,n):
+    cnt=1
+    curr=0
+    i=0
+    while(i<n):
+        if curr+job[i]>time:
+            curr=0
+            cnt+=1
+        else:
+            curr+=job[i]
+            i+=1
+    if cnt<=k:
+        return True
+    else:
+        return False
+def min_time(k,job,n):
+    start=max(job)
+    end=sum(job)
+    ans=end
+    while(start<=end):
+        mid=(start+end)/2
+        mid=(int(mid))
+        if is_possible(mid,k,job,n):
+            ans=min(ans,mid)
+            end=mid-1
+        else:
+            start=mid+1
+    return ans
+t=int(input())
+for i in range(t):
+    n,k=map(int,input().split())
+    job=list(map(int,input().split()))
+    print(min_time(k,job,n))
